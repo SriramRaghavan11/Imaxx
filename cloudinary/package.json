@@ -1,0 +1,14 @@
+{
+    "name": "cloudinary-migration",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "migrate": "node migrateToCloudinary.js",
+        "update": "node updateComponents.js"
+    },
+    "dependencies": {
+        "cloudinary": "^1.41.0",
+        "dotenv": "^16.3.1",
+        "glob": "^10.3.10"
+    }
+}
