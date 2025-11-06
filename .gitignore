@@ -8,7 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Public directory
-public/
+public/images
 
 # Dependency directories
 node_modules/
