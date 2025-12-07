@@ -31,25 +31,25 @@ export const productData = {
                 id: 1,
                 title: "COMPACT 34\" ATA DESIGN",
                 description: "Small draw length performance is key. Easier to draw higher poundages while maintaining stability and a natural hold. Perfect peep position shot after shot.",
-                image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1761654491/imaxx_images/bow/easy%20tuning.JPG.jpg"
+                image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1764747205/no-image-available-icon-vector_zj4xjk.jpg"
             },
             {
                 id: 2,
                 title: "SPECIAL CAMS & DRAW LENGTH ADJUSTMENT",
                 description: "Draw lengths from 24\" to 28\" in precise 1/4\" increments. Special cams engineered to perform at these draw lengths. Experiment and get it just right — the perfect draw length equals perfect form.",
-                image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1761654547/imaxx_images/bow/v9.JPG.jpg"
+                image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1764747205/no-image-available-icon-vector_zj4xjk.jpg"
             },
             {
                 id: 3,
                 title: "ADJUSTABLE LET-OFF SYSTEM",
                 description: "Choose between 75%, 70%, or 65% let-off. Fine-tune your shooting experience — let-off has a huge impact on not just arrow tuning but also on your shooting form and consistency.",
-                image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1761654526/imaxx_images/bow/v10.JPG.jpg"
+                image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1764747205/no-image-available-icon-vector_zj4xjk.jpg"
             },
             {
                 id: 4,
                 title: "HARD AND SOFT END WALL",
                 description: "No more creep. Your final adjustment in the art of shooting. Choose between hard or soft wall for the perfect back tension and release execution.",
-                image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1761654516/imaxx_images/bow/tejf2.jpg"
+                image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1764747205/no-image-available-icon-vector_zj4xjk.jpg"
             }
         ],
         specifications: {
