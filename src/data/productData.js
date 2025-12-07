@@ -6,14 +6,16 @@ export const productData = {
         name: "IMX VISWA 34",
         route: "viswa-34-series-bow",
         category: "bows",
-        price: 60000,
+        price: null, // Coming Soon - No price yet
+        comingSoon: true,
         rating: 4.9,
         reviewCount: 38,
         image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1764747026/Imaxx-Viswa-34-Desc_han0xm.jpg",
         description: "A bow that takes you to the next step — the ultimate weapon of choice for young champions.\n\n" +
             "With a compact 34\" ATA, this bow delivers small draw length performance that's key to easier handling and higher poundages.\n" +
             "Experience a stable and natural hold with perfect peep position every time.\n" +
-            "Adjustable let-off (75%, 70%, 65%) lets you fine-tune your shooting experience — because let-off impacts not just arrow tuning but your entire shooting form.",
+            "Adjustable let-off (75%, 70%, 65%) lets you fine-tune your shooting experience — because let-off impacts not just arrow tuning but your entire shooting form.\n\n" +
+            "COMING SOON",
         specs: ["Draw Weight: 40-50 lbs, 50-60 lbs", "Weight: 1.85 kg"],
         features: ["ADJUSTABLE LET-OFF", "PERFECT FOR YOUNG CHAMPIONS"],
         images: [
@@ -21,10 +23,8 @@ export const productData = {
             'https://res.cloudinary.com/dfmtazecg/image/upload/v1764746959/Imaxx-Viswa-34_hiwat2.jpg'
         ],
         mediaItems: [
-            { type: 'video', src: '/images/bow/viswa34vid.MP4', thumbnail: "https://res.cloudinary.com/dfmtazecg/image/upload/v1761654535/imaxx_images/bow/v4.JPG.jpg" },
-            { type: 'image', src: "https://res.cloudinary.com/dfmtazecg/image/upload/v1761654535/imaxx_images/bow/v4.JPG.jpg" },
-            { type: 'image', src: 'https://res.cloudinary.com/dfmtazecg/image/upload/v1761654539/imaxx_images/bow/v5.JPG.jpg' },
-            { type: 'image', src: 'https://res.cloudinary.com/dfmtazecg/image/upload/v1761654541/imaxx_images/bow/v6.JPG.jpg' },
+            { type: 'image', src: 'https://res.cloudinary.com/dfmtazecg/image/upload/v1764747026/Imaxx-Viswa-34-Desc_han0xm.jpg' },
+            { type: 'image', src: 'https://res.cloudinary.com/dfmtazecg/image/upload/v1764746959/Imaxx-Viswa-34_hiwat2.jpg' },
         ],
         technologies: [
             {
@@ -32,28 +32,24 @@ export const productData = {
                 title: "COMPACT 34\" ATA DESIGN",
                 description: "Small draw length performance is key. Easier to draw higher poundages while maintaining stability and a natural hold. Perfect peep position shot after shot.",
                 image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1761654491/imaxx_images/bow/easy%20tuning.JPG.jpg"
-                // image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1764747205/no-image-available-icon-vector_zj4xjk.jpg"
             },
             {
                 id: 2,
                 title: "SPECIAL CAMS & DRAW LENGTH ADJUSTMENT",
                 description: "Draw lengths from 24\" to 28\" in precise 1/4\" increments. Special cams engineered to perform at these draw lengths. Experiment and get it just right — the perfect draw length equals perfect form.",
                 image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1761654547/imaxx_images/bow/v9.JPG.jpg"
-                // image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1764747205/no-image-available-icon-vector_zj4xjk.jpg"
             },
             {
                 id: 3,
                 title: "ADJUSTABLE LET-OFF SYSTEM",
                 description: "Choose between 75%, 70%, or 65% let-off. Fine-tune your shooting experience — let-off has a huge impact on not just arrow tuning but also on your shooting form and consistency.",
                 image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1761654526/imaxx_images/bow/v10.JPG.jpg"
-                // image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1764747205/no-image-available-icon-vector_zj4xjk.jpg"
             },
             {
                 id: 4,
                 title: "HARD AND SOFT END WALL",
                 description: "No more creep. Your final adjustment in the art of shooting. Choose between hard or soft wall for the perfect back tension and release execution.",
                 image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1761654516/imaxx_images/bow/tejf2.jpg"
-                // image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1764747205/no-image-available-icon-vector_zj4xjk.jpg"
             }
         ],
         specifications: {

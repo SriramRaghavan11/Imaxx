@@ -210,8 +210,15 @@ const Products = () => {
                       alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute top-4 right-4 bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      New
+                    {/* UPDATED: Conditional badge for New or Coming Soon */}
+                    <div
+                      className={`absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-medium ${
+                        product.comingSoon
+                          ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white animate-pulse"
+                          : "bg-orange-600 text-white"
+                      }`}
+                    >
+                      {product.comingSoon ? "Coming Soon" : "New"}
                     </div>
                   </div>
                   <div className="p-6 flex flex-1 flex-col">
@@ -256,8 +263,11 @@ const Products = () => {
                       )}
                     </div>
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-auto pt-4 gap-4">
+                      {/* UPDATED: Conditional price rendering with null check */}
                       <div className="text-2xl font-bold text-orange-600">
-                        MRP ₹{product.price.toLocaleString()}
+                        {product.price
+                          ? `MRP ₹${product.price.toLocaleString()}`
+                          : "Price TBA"}
                       </div>
                       <button
                         onClick={(e) => {

@@ -2,33 +2,35 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, Heart, Share2, Check } from "lucide-react";
+import { Star, Heart, Share2, Check, Bell } from "lucide-react";
 
 const ProductInfo = ({ product, images, selectedImage, setSelectedImage }) => {
   const [copied, setCopied] = useState(false);
+  const [notifySuccess, setNotifySuccess] = useState(false);
 
-  // --- UPDATED SHARE FUNCTION ---
+  // Handle notify me for coming soon products
+  const handleNotifyMe = () => {
+    // TODO: Add your notification logic here (e.g., open modal, save email, etc.)
+    setNotifySuccess(true);
+    setTimeout(() => setNotifySuccess(false), 3000);
+  };
+
+  // Share function
   const handleShare = async () => {
     const shareData = {
       title: product.name,
       text: `Check out this amazing product: ${product.name}`,
-      url: window.location.href, // The URL of the current product page
+      url: window.location.href,
     };
 
-    // Check if the browser supports the Web Share API
     if (navigator.share) {
       try {
-        // Open the native share dialog
         await navigator.share(shareData);
         console.log("Product shared successfully!");
       } catch (err) {
-        // This can happen if the user cancels the share.
-        // We'll just log it to the console and not bother the user.
         console.error("Share failed or was cancelled:", err);
       }
     } else {
-      // --- FALLBACK ---
-      // If the API isn't supported, fall back to copying the link.
       navigator.clipboard.writeText(window.location.href);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
@@ -59,7 +61,7 @@ const ProductInfo = ({ product, images, selectedImage, setSelectedImage }) => {
       animate="visible"
       className="space-y-8"
     >
-      {/* SECTION: Header (Title & Price) */}
+      {/* SECTION: Header (Title & Price/Coming Soon Badge) */}
       <motion.div
         variants={itemVariants}
         className="flex items-start justify-between gap-4"
@@ -70,9 +72,41 @@ const ProductInfo = ({ product, images, selectedImage, setSelectedImage }) => {
         >
           {product.name}
         </h1>
-        <p className="mt-1 flex-shrink-0 text-3xl font-bold text-orange-600 sm:text-4xl">
-          ₹{product.price.toLocaleString()}
-        </p>
+
+        {/* UPDATED: Conditional rendering for price or coming soon badge */}
+        {product.comingSoon ? (
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            className="flex-shrink-0"
+          >
+            <div className="relative">
+              <motion.div
+                animate={{
+                  boxShadow: [
+                    "0 0 0 0 rgba(249, 115, 22, 0.4)",
+                    "0 0 0 10px rgba(249, 115, 22, 0)",
+                  ],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                }}
+                className="rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-3 shadow-lg"
+              >
+                <p className="text-sm font-bold text-white whitespace-nowrap">
+                  COMING SOON
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+        ) : (
+          <p className="mt-1 flex-shrink-0 text-3xl font-bold text-orange-600 sm:text-4xl">
+            ₹{product.price?.toLocaleString()}
+          </p>
+        )}
       </motion.div>
 
       {/* SECTION: Image Thumbnails with Layout Animation */}
@@ -104,24 +138,55 @@ const ProductInfo = ({ product, images, selectedImage, setSelectedImage }) => {
         </div>
       </motion.div>
 
-      {/* SECTION: CTA + Share */}
+      {/* SECTION: CTA + Share - UPDATED for Coming Soon */}
       <motion.div
         variants={itemVariants}
         className="flex items-center gap-3 w-full mt-15"
       >
-        {/* CTA Button - takes most of the width */}
+        {/* CTA Button - Conditional based on comingSoon */}
         <motion.div
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: product.comingSoon ? 1.02 : 1.02 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="flex-1" // makes it grow and fill
+          className="flex-1"
         >
-          <Link
-            to="/dealers"
-            className="w-full block text-center rounded-xl bg-slate-900 px-4 py-2 text-lg font-bold text-white shadow-lg shadow-slate-900/20 transition-colors duration-300 hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
-          >
-            FIND A DEALER
-          </Link>
+          {product.comingSoon ? (
+            <button
+              onClick={handleNotifyMe}
+              className="w-full flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-4 py-3 text-lg font-bold text-white shadow-lg shadow-orange-500/30 transition-colors duration-300 hover:bg-orange-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+            >
+              <AnimatePresence mode="wait">
+                {notifySuccess ? (
+                  <motion.span
+                    key="success"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="flex items-center gap-2"
+                  >
+                    <Check size={20} /> You'll be notified!
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="notify"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="flex items-center gap-2"
+                  >
+                    <Bell size={20} /> NOTIFY ME
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </button>
+          ) : (
+            <Link
+              to="/dealers"
+              className="w-full block text-center rounded-xl bg-slate-900 px-4 py-2 text-lg font-bold text-white shadow-lg shadow-slate-900/20 transition-colors duration-300 hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2"
+            >
+              FIND A DEALER
+            </Link>
+          )}
         </motion.div>
 
         {/* Share Button - stays compact */}
