@@ -16,6 +16,7 @@ const navigation = [
         items: [
           { name: "IMX TEJ 28", href: `/products/${productData[1].route}` },
           { name: "IMX VISWA 37", href: `/products/${productData[2].route}` },
+          { name: "IMX VISWA 34", href: `/products/${productData[7].route}` },
         ],
       },
       {

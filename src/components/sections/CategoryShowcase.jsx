@@ -38,7 +38,7 @@ const CategoryShowcase = () => {
       id: 2,
       name: "VISWA SERIES",
       category: "BOWS",
-      image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1764747026/Imaxx-Viswa-34-Desc_han0xm.jpg",
+      image: "https://res.cloudinary.com/dfmtazecg/image/upload/v1761654535/imaxx_images/bow/v4.JPG.jpg",
       link: "/products",
       subtitle: "THE SMOOTH SHOOTER.",
     },
